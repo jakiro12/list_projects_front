@@ -10,6 +10,17 @@
     width: 100%;
     height: 50%;
 }
+.nav-bar_container > div:first-child{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 10px;
+}
+.nav-bar_btn-mode_container{
+    width: 150px;
+    height: 80%;
+    outline: 1px solid red;
+}
 .nav-bar_container > div:last-child{
     display: flex;
     justify-content: space-between;
@@ -34,6 +45,7 @@
     background-color: red;
     border: none;
     border-radius: 5px;
+    cursor: pointer;
 }
 .nav-bar_btn-back{
     width: 140px;
@@ -44,6 +56,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    cursor: pointer;
 }
 .add-project_container{
     width: 100%;
@@ -95,6 +108,7 @@
     background-color: red;
     border: none;
     border-radius: 5px;
+    cursor: pointer;
 }
 .list-projects_container{
     width: 100%;
@@ -123,6 +137,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.504);
 }
 .list-projects_container-boxes{
     width: min(900px,100%);

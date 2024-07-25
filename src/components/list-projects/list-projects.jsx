@@ -32,8 +32,10 @@ export default function ListCurrentProjects({ currentData, setActionType, delete
                     <div>
                         <article className='list-projects_container-boxes-modal' style={{ display: openModal[index] ? 'block' : 'none' }}>
                             <div 
+                                style={{cursor:'pointer'}}
                                 onClick={() =>setIndexProject(index) }>&#9998; Edit</div>
                             <div 
+                                style={{cursor:'pointer'}}
                                 onClick={()=>deleteProject(index)}>&#10006; Delete</div>
                         </article>
                         <div className='list-projects_data-name'>

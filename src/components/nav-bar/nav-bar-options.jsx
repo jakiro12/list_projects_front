@@ -2,7 +2,10 @@ import '../styles-components.css'
 export default function NavBarForOptions({setActionType, typeAction}){
     return(
         <nav className="nav-bar_container">
-            <div>Logo</div>
+            <div>
+                <span>Logo</span>
+                <aside className='nav-bar_btn-mode_container'>Btn</aside>
+            </div>
             <div>
                 { typeAction === null ? <aside className='nav-bar_section-landing'>
                     <p>My projects</p>
