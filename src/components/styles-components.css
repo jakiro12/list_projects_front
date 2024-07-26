@@ -322,4 +322,7 @@
     .list-projects_data-status{
         display: none;
     }
+    .nav-bar_section-add{
+        width: 50%;
+    }
 }
