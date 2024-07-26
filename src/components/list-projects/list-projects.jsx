@@ -17,6 +17,9 @@ export default function ListCurrentProjects({ currentData, setActionType, delete
         let updateData = [...currentData];
         updateData.splice(index, 1);
         deleteAnyProjects([updateData])
+        const newModals = [...openModal];
+        newModals[index] = false;
+        setOpenModal(newModals);
     }
     return (
         <section className='list-projects_container'>

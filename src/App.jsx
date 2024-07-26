@@ -41,6 +41,7 @@ const handleDeleteProjects=(data)=>{
       content=<EditCurrentProject 
                 projectToEdit={currentProjects}
                 setCurrentEdited={handleEditedProjects}
+                setActionType={handleSetActionType}
                 />
       break;
     default:

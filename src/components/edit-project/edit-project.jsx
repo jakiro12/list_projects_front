@@ -1,6 +1,6 @@
 import '../styles-components.css';
 
-export default function EditCurrentProject({ projectToEdit, setCurrentEdited }) {
+export default function EditCurrentProject({ projectToEdit, setCurrentEdited, setActionType}) {
     let currentProjectToEditPosition = localStorage.getItem('indexArr'); // posición de objeto dentro del arr
     let projectData = {
         projectName: projectToEdit[currentProjectToEditPosition].projectName,
@@ -20,6 +20,7 @@ export default function EditCurrentProject({ projectToEdit, setCurrentEdited }) 
         updateData.splice(currentProjectToEditPosition, 1);
         updateData.splice(currentProjectToEditPosition, 0, projectData);
         setCurrentEdited([updateData])
+        setActionType(null)
     };
 
     return (
