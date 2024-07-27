@@ -160,6 +160,7 @@
     justify-content: flex-start;
     padding-top: 20px;
     background-color: var(--bg-addproject-color);
+    overflow-y: scroll;
 }
 .empty_list-projects_container{
     width: 100%;
@@ -292,6 +293,29 @@
     margin: auto;
     padding: 3px 5px;
 }
+.modal_successful-add{
+    position: fixed;
+    z-index: 2;
+    right: 10%;
+    top: 30%;
+    width: 200px;
+    height: 100px;
+    border-radius: 10px;
+    background-color: var(--bg-navbar-color);
+    display: grid;
+    color: var(--text-navbar-color);
+    place-items: center;
+    box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.504);
+}
+@keyframes load {
+    0% { width: 0; }
+    100% { width: 100%; }
+  }
+.modal_successful-add > progress{
+    width: 100%;
+    animation: load 3s forwards;
+}
+
 @media (max-width:630px){
     .list-projects-header{
         display: none;

@@ -1,7 +1,8 @@
+import AlertForProjectAdd from '../modal-actions/successful-adding';
 import '../styles-components.css'
-
+import { useState, useEffect } from 'react';
 export default function AddNewProject({newProjectData,setCurrentProjectData,onFormSubmit}){
-    
+    const [alertAction,setAlertAction]=useState(false)
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setCurrentProjectData({...newProjectData,[name]: value
@@ -18,9 +19,17 @@ export default function AddNewProject({newProjectData,setCurrentProjectData,onFo
             assignedTo: '',
             status: ''
         });
+        setAlertAction(true)
     };
+     useEffect(()=>{
+        setTimeout(() => {
+            setAlertAction(false)
+        },4000);
+        return () => clearTimeout()
+    },[alertAction])
     return(
         <section className='add-project_container'>
+            {alertAction === false ? null : <AlertForProjectAdd/>}
         <form onSubmit={handleSubmit}>
             <div className='add-project_form_sections'>
                 <label htmlFor="projectName">Project Name</label>
