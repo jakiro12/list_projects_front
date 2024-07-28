@@ -252,6 +252,7 @@
     border: none;
     transform: rotateZ(90deg);
     margin: auto;
+    cursor: pointer;
 }
 .list-projects_container-boxes_photo{
     width: 30px;
@@ -297,7 +298,7 @@
     position: fixed;
     z-index: 2;
     right: 10%;
-    top: 30%;
+    top: 3%;
     width: 200px;
     height: 100px;
     border-radius: 10px;

@@ -5,9 +5,15 @@ export default function ListCurrentProjects({ currentData, setActionType, delete
     const [openModal, setOpenModal] = useState(Array(currentData.length).fill(false));
 
     const handleOpenModal = (index) => {
-        const newModals = [...openModal];
-        newModals[index] = true;
-        setOpenModal(newModals);
+        if(openModal[index]=== false){
+            const newModals = [...openModal];
+            newModals[index] = true;
+            setOpenModal(newModals);
+        }else{
+            const newModals = [...openModal];
+            newModals[index] = false;
+            setOpenModal(newModals);
+        }
     };
     const setIndexProject=(position)=>{
         localStorage.setItem('indexArr',position)

@@ -4,7 +4,7 @@ export default function AlertForProjectAdd(){
     return(
         <div className='modal_successful-add'>
             <span >
-                Agregado exisotamente!!
+                Agregaste un proyecto!
             </span>
             <progress max={100} value={100} style={{marginTop:'auto'}}/>
         </div>
