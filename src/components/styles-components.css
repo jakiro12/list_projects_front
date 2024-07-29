@@ -160,7 +160,10 @@
     justify-content: flex-start;
     padding-top: 20px;
     background-color: var(--bg-addproject-color);
-    overflow-y: scroll;
+}
+.list-projects_container-aside{
+    width: min(900px,100%);
+    height: calc(100% - 80px);
 }
 .empty_list-projects_container{
     width: 100%;
@@ -298,7 +301,7 @@
     position: fixed;
     z-index: 2;
     right: 10%;
-    top: 3%;
+    top: 16%;
     width: 200px;
     height: 100px;
     border-radius: 10px;

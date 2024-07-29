@@ -36,38 +36,40 @@ export default function ListCurrentProjects({ currentData, setActionType, delete
                     <span>Status</span>
                     <span>Action</span>
                 </div>
-            { currentData?.map((project, index) => (
-                <div key={index} className='list-projects_container-boxes'>
-                    <div>
-                        <article className='list-projects_container-boxes-modal' style={{ display: openModal[index] ? 'block' : 'none' }}>
-                            <div 
-                                style={{cursor:'pointer'}}
-                                onClick={() =>setIndexProject(index) }>&#9998; Edit</div>
-                            <div 
-                                style={{cursor:'pointer'}}
-                                onClick={()=>deleteProject(index)}>&#10006; Delete</div>
-                        </article>
-                        <div className='list-projects_data-name'>
-                            <p style={{ fontWeight: '500' }}>{project.projectName}</p>
-                            <small style={{ color: '#0000004d' }}>Creation date: 09/09/2020 10:30 am</small>
-                        </div>
-                        <div className='list-projects_data-extra'>
-                                <span></span>
-                                {project.projectManager}</div>
-                        <div className='list-projects_data-extra'>
-                                <span></span>
-                            {project.assignedTo}</div>
-                        <button className='list-projects_data-status'>{project.status}</button>
-                        <button onClick={() => handleOpenModal(index)} className='list-projects_container-boxes_edit-projects'>
-                            . . .
-                        </button>
-                    </div>
-                    <div>
-                        <span className='list-projects_container-boxes_photo'></span>
-                        <p>Ignacio Tuffa</p>
-                    </div>
-                </div>            
-            ))  }
+                <aside className='list-projects_container-aside' style={{overflowY: currentData.length > 5 ? 'scroll': 'hidden'}}>
+                    { currentData?.map((project, index) => (
+                        <div key={index} className='list-projects_container-boxes'>
+                            <div>
+                                <article className='list-projects_container-boxes-modal' style={{ display: openModal[index] ? 'block' : 'none' }}>
+                                    <div 
+                                        style={{cursor:'pointer'}}
+                                        onClick={() =>setIndexProject(index) }>&#9998; Edit</div>
+                                    <div 
+                                        style={{cursor:'pointer'}}
+                                        onClick={()=>deleteProject(index)}>&#10006; Delete</div>
+                                </article>
+                                <div className='list-projects_data-name'>
+                                    <p style={{ fontWeight: '500' }}>{project.projectName}</p>
+                                    <small style={{ color: '#0000004d' }}>Creation date: 09/09/2020 10:30 am</small>
+                                </div>
+                                <div className='list-projects_data-extra'>
+                                        <span></span>
+                                        {project.projectManager}</div>
+                                <div className='list-projects_data-extra'>
+                                        <span></span>
+                                    {project.assignedTo}</div>
+                                <button className='list-projects_data-status'>{project.status}</button>
+                                <button onClick={() => handleOpenModal(index)} className='list-projects_container-boxes_edit-projects'>
+                                    . . .
+                                </button>
+                            </div>
+                            <div>
+                                <span className='list-projects_container-boxes_photo'></span>
+                                <p>Ignacio Tuffa</p>
+                            </div>
+                        </div>            
+                    ))  }
+                </aside>
         </section>
     );
 }
