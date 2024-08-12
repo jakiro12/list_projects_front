@@ -1,8 +1,10 @@
 import AlertForProjectAdd from '../modal-actions/successful-adding';
 import '../styles-components.css'
+import { regexPatterns } from '../../utils/regex-form';
 import { useState, useEffect } from 'react';
 export default function AddNewProject({newProjectData,setCurrentProjectData,onFormSubmit}){
     const [alertAction,setAlertAction]=useState(false)
+    const [messageAlert, setMessageAlert]=useState('')
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setCurrentProjectData({...newProjectData,[name]: value
@@ -11,6 +13,17 @@ export default function AddNewProject({newProjectData,setCurrentProjectData,onFo
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        if(regexPatterns.checkProjectName.test(newProjectData.projectName) === false){
+            setMessageAlert('Solo nombres de 5 a 15 letras')
+            setAlertAction(true)
+            return
+        }
+        if(regexPatterns.checkDescription.test(newProjectData.description) === false){
+            setMessageAlert('Debe contener entre 5 y 30 caracteres')
+            setAlertAction(true)
+            return
+        }
+        console.log(newProjectData)
         onFormSubmit(newProjectData)
         setCurrentProjectData({
             projectName: '',
@@ -29,7 +42,7 @@ export default function AddNewProject({newProjectData,setCurrentProjectData,onFo
     },[alertAction])
     return(
         <section className='add-project_container'>
-            {alertAction === false ? null : <AlertForProjectAdd/>}
+            {alertAction === false ? null : <AlertForProjectAdd actionMessage={messageAlert}/>}
         <form onSubmit={handleSubmit}>
             <div className='add-project_form_sections'>
                 <label htmlFor="projectName">Project Name</label>
