@@ -23,7 +23,6 @@ export default function AddNewProject({newProjectData,setCurrentProjectData,onFo
             setAlertAction(true)
             return
         }
-        console.log(newProjectData)
         onFormSubmit(newProjectData)
         setCurrentProjectData({
             projectName: '',
@@ -37,9 +36,10 @@ export default function AddNewProject({newProjectData,setCurrentProjectData,onFo
      useEffect(()=>{
         setTimeout(() => {
             setAlertAction(false)
+            setMessageAlert('')
         },4000);
         return () => clearTimeout()
-    },[alertAction])
+    },[alertAction,messageAlert])
     return(
         <section className='add-project_container'>
             {alertAction === false ? null : <AlertForProjectAdd actionMessage={messageAlert}/>}

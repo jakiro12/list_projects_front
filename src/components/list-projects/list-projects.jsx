@@ -3,7 +3,16 @@ import '../styles-components.css';
 
 export default function ListCurrentProjects({ currentData, setActionType, deleteAnyProjects }) {
     const [openModal, setOpenModal] = useState(Array(currentData.length).fill(false));
-
+    const currentDate = new Date();
+    const formatCurrentDay = new Intl.DateTimeFormat('en-US', {
+      month: 'short',
+      day: 'numeric',
+      weekday: 'short',
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+    
+    const dateData = formatCurrentDay.format(currentDate);
     const handleOpenModal = (index) => {
         if(openModal[index]=== false){
             const newModals = [...openModal];
@@ -50,7 +59,7 @@ export default function ListCurrentProjects({ currentData, setActionType, delete
                                 </article>
                                 <div className='list-projects_data-name'>
                                     <p style={{ fontWeight: '500' }}>{project.projectName}</p>
-                                    <small style={{ color: '#0000004d' }}>Creation date: 09/09/2020 10:30 am</small>
+                                    <small style={{ color: '#0000004d' }}>Creation date:{dateData}</small>
                                 </div>
                                 <div className='list-projects_data-extra'>
                                         <span></span>

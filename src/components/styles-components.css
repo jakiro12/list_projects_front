@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Oswald:wght@200..700&family=Sedan+SC&display=swap');
 :root{
     --bg-navbar-color:#ffffff;
     --text-navbar-color:#121212;
@@ -300,10 +301,11 @@
 .modal_successful-add{
     position: fixed;
     z-index: 2;
-    right: 10%;
-    top: 16%;
-    width: 200px;
-    height: 100px;
+    top:50%;
+    left: 50%; 
+    transform: translate(-50%,-50%);
+    width: 300px;
+    height: 250px;
     border-radius: 10px;
     background-color: var(--bg-navbar-color);
     display: grid;
@@ -314,6 +316,12 @@
 .modal_successful-add > span {
     width: 95%;
     height: fit-content;
+    text-align: center;
+    font-family: "Newsreader", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 20px;
 }
 @keyframes load {
     0% { width: 0; }

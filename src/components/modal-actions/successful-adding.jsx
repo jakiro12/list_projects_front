@@ -4,9 +4,9 @@ export default function AlertForProjectAdd({actionMessage}){
     return(
         <div className='modal_successful-add'>
             <span >
-                {actionMessage === '' ? 'Agregaste un proyecto!' : actionMessage}                
+                {actionMessage === '' ? 'Proyecto asignado!' : actionMessage}                
             </span>
-            <progress max={100} value={100} style={{marginTop:'auto'}}/>
+            {actionMessage === '' ? <progress max={100} value={100} style={{marginTop:'auto'}}/> : null}                            
         </div>
     )
 }
