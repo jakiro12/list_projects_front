@@ -27,7 +27,7 @@ export default function EditCurrentProject({ projectToEdit, setCurrentEdited, se
         <section className='add-project_container'>
             <form onSubmit={editSelectedProject}>
                 <div className='add-project_form_sections'>
-                    <label htmlFor="projectName">Project Name</label>
+                    <label htmlFor="projectName">Nombre del proyecto</label>
                     <input
                         placeholder={projectToEdit[currentProjectToEditPosition].projectName}
                         type="text"
@@ -37,7 +37,7 @@ export default function EditCurrentProject({ projectToEdit, setCurrentEdited, se
                     />
                 </div>
                 <div className='add-project_form_sections'>
-                    <label htmlFor="description">Description</label>
+                    <label htmlFor="description">Descripcion</label>
                     <input
                         placeholder={projectToEdit[currentProjectToEditPosition].description}
                         type="text"
@@ -59,7 +59,7 @@ export default function EditCurrentProject({ projectToEdit, setCurrentEdited, se
                     </select>
                 </div>
                 <div className='add-project_form_sections'>
-                    <label htmlFor="assignedTo">Assigned To</label>
+                    <label htmlFor="assignedTo">Asignar persona</label>
                     <select
                         name="assignedTo"
                         onChange={(e)=>setCurrentProjectData(e.target.value,"assignedTo")}
@@ -71,19 +71,19 @@ export default function EditCurrentProject({ projectToEdit, setCurrentEdited, se
                     </select>
                 </div>
                 <div className='add-project_form_sections'>
-                    <label htmlFor="status">Status</label>
+                    <label htmlFor="status">Estado</label>
                     <select
                         name="status"
                         onChange={(e)=>setCurrentProjectData(e.target.value,"status")}
                         required
                     >
                         <option value="">{projectToEdit[currentProjectToEditPosition].status}</option>
-                        <option value="enabled">Enabled</option>
-                        <option value="disabled">Disabled</option>
+                        <option value="enabled">Habilitar</option>
+                        <option value="disabled">Dishabilitar</option>
                     </select>
                 </div>
                 <div className='add-project_form_sections_submit'>
-                    <button type="submit">Update Project</button>
+                    <button type="submit">Actualizar</button>
                 </div>
             </form>
         </section>

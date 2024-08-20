@@ -39,11 +39,11 @@ export default function ListCurrentProjects({ currentData, setActionType, delete
     return (
         <section className='list-projects_container'>
             <div className='list-projects-header'>
-                    <span>Project Info</span>
+                    <span>Informacion</span>
                     <span>Project Manager</span>
-                    <span>Assigned To</span>
-                    <span>Status</span>
-                    <span>Action</span>
+                    <span>Asignado a</span>
+                    <span>Estado</span>
+                    <span>Accion</span>
                 </div>
                 <aside className='list-projects_container-aside' style={{overflowY: currentData.length > 5 ? 'scroll': 'hidden'}}>
                     { currentData?.map((project, index) => (
@@ -52,10 +52,10 @@ export default function ListCurrentProjects({ currentData, setActionType, delete
                                 <article className='list-projects_container-boxes-modal' style={{ display: openModal[index] ? 'block' : 'none' }}>
                                     <div 
                                         style={{cursor:'pointer'}}
-                                        onClick={() =>setIndexProject(index) }>&#9998; Edit</div>
+                                        onClick={() =>setIndexProject(index) }>&#9998; Editar</div>
                                     <div 
                                         style={{cursor:'pointer'}}
-                                        onClick={()=>deleteProject(index)}>&#10006; Delete</div>
+                                        onClick={()=>deleteProject(index)}>&#10006; Borrar</div>
                                 </article>
                                 <div className='list-projects_data-name'>
                                     <p style={{ fontWeight: '500' }}>{project.projectName}</p>

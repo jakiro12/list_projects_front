@@ -84,6 +84,11 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-family: "Newsreader", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 15px;
 }
 .nav-bar_btn-back{
     width: fit-content;
@@ -151,6 +156,11 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-family: "Newsreader", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 18px;
 }
 .list-projects_container{
     width: 100%;

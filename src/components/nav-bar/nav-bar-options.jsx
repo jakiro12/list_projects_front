@@ -26,18 +26,18 @@ export default function NavBarForOptions({setActionType, typeAction}){
             </div>
             <div>
                 { typeAction === null ? <aside className='nav-bar_section-landing'>
-                    <p>My projects</p>
+                    <p>Proyectos Actuales</p>
                     <button
                         onClick={()=>setActionType('add')}
-                    >+ Add Project</button>
+                    >+ Asignar Proyecto</button>
                 </aside>:
                 <aside className='nav-bar_section-add'>
                     <button
                             className='nav-bar_btn-back'
                             onClick={()=>setActionType(null)}
-                    >&#10094;  Back
+                    >&#10094;  Volver
                     </button>
-                    <span style={{fontWeight:'bold'}}>{typeAction === 'add' ? 'Add Project' : 'Edit Project'}</span>
+                    <span style={{fontWeight:'bold'}}>{typeAction === 'add' ? 'Agregar nuevo proyecto' : 'Editar proyecto'}</span>
                 </aside>
                 }
                 

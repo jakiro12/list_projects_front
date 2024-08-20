@@ -14,12 +14,12 @@ export default function AddNewProject({newProjectData,setCurrentProjectData,onFo
     const handleSubmit = (e) => {
         e.preventDefault();
         if(regexPatterns.checkProjectName.test(newProjectData.projectName) === false){
-            setMessageAlert('Solo nombres de 5 a 15 letras')
+            setMessageAlert('El nombre debe contener entre 5 y 15 letras')
             setAlertAction(true)
             return
         }
         if(regexPatterns.checkDescription.test(newProjectData.description) === false){
-            setMessageAlert('Debe contener entre 5 y 30 caracteres')
+            setMessageAlert('La descripcion debe contener entre 5 y 30 caracteres')
             setAlertAction(true)
             return
         }
@@ -45,7 +45,7 @@ export default function AddNewProject({newProjectData,setCurrentProjectData,onFo
             {alertAction === false ? null : <AlertForProjectAdd actionMessage={messageAlert}/>}
         <form onSubmit={handleSubmit}>
             <div className='add-project_form_sections'>
-                <label htmlFor="projectName">Project Name</label>
+                <label htmlFor="projectName">Nombre del proyecto</label>
                 <input
                     type="text"
                     id="projectName"
@@ -56,7 +56,7 @@ export default function AddNewProject({newProjectData,setCurrentProjectData,onFo
                 />
             </div>
             <div className='add-project_form_sections'>
-                <label htmlFor="description">Description</label>
+                <label htmlFor="description">Descripcion</label>
                 <input
                     type="text"
                     id="description"
@@ -75,13 +75,13 @@ export default function AddNewProject({newProjectData,setCurrentProjectData,onFo
                     onChange={handleInputChange}
                     required
                 >
-                    <option value="">Select a person</option>
+                    <option value="">Seleccionar Manager</option>
                     <option value="manager1">Manager 1</option>
                     <option value="manager2">Manager 2</option>
                 </select>
             </div>
             <div className='add-project_form_sections'>
-                <label htmlFor="assignedTo">Assigned To</label>
+                <label htmlFor="assignedTo">Asignar persona</label>
                 <select
                     id="assignedTo"
                     name="assignedTo"
@@ -89,13 +89,13 @@ export default function AddNewProject({newProjectData,setCurrentProjectData,onFo
                     onChange={handleInputChange}
                     required
                 >
-                    <option value="">Select a person</option>
+                    <option value="">Seleccionar persona</option>
                     <option value="user1">User 1</option>
                     <option value="user2">User 2</option>
                 </select>
             </div>
             <div className='add-project_form_sections'>
-                <label htmlFor="status">Status</label>
+                <label htmlFor="status">Estado</label>
                 <select
                     id="status"
                     name="status"
@@ -109,7 +109,7 @@ export default function AddNewProject({newProjectData,setCurrentProjectData,onFo
                 </select>
             </div>
             <div className='add-project_form_sections_submit'>
-                <button type="submit">Create Project</button>
+                <button type="submit">Crear Proyecto</button>
             </div>
         </form>
     </section>
