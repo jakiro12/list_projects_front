@@ -50,6 +50,9 @@ export default function ListCurrentProjects({ currentData, setActionType, delete
                         <div key={index} className='list-projects_container-boxes'>
                             <div>
                                 <article className='list-projects_container-boxes-modal' style={{ display: openModal[index] ? 'block' : 'none' }}>
+                                <div 
+                                        style={{cursor:'pointer'}}
+                                        >&#10004; Asignar</div>
                                     <div 
                                         style={{cursor:'pointer'}}
                                         onClick={() =>setIndexProject(index) }>&#9998; Editar</div>
