@@ -1,11 +1,13 @@
 import { getAuthData } from '../../../utils/urls-trello-api';
 import '../../styles-components.css';
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { ContextApi } from '../modal-options';
 export default function GetCredentialsToAssign(){
     const[credentials,setCredentials]=useState({
         apiKey:'',
         tokenUser:''
     })
+    const { boardAuth, setBoardAuth } = useContext(ContextApi);
     const[loading,setLoading]=useState(false)
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -15,11 +17,14 @@ export default function GetCredentialsToAssign(){
     const onFormSubmit=async(e)=>{
         e.preventDefault()
         setLoading(true)
-        console.log(credentials)
         const fetchBoardData = async () => {
             try {
               let dataToGetBoard = await getAuthData(credentials.apiKey, credentials.tokenUser);
-              console.log(dataToGetBoard);
+              if(dataToGetBoard.idBoards !== null){
+                setBoardAuth(dataToGetBoard.idBoards)
+              }else{
+                setBoardAuth(null)
+              }
             } catch (error) {
               console.error('Error fetching data:', error);
             }finally{
@@ -51,7 +56,7 @@ export default function GetCredentialsToAssign(){
             <button type='submit'>
                 Acceder
             </button>
-        </form> : <span class="loader"></span>
+        </form> : <span className="loader"></span>
         }
         </>
         

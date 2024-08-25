@@ -50,6 +50,9 @@ const handleEditedProjects=(data)=>{
 const handleDeleteProjects=(data)=>{
   setCurrentProjects([...data].flat())
 }
+const handleAssignProject=()=>{
+  setAssignProject(true)
+}
   switch (action) {
     case 'add':
       content=<AddNewProject 
@@ -69,7 +72,9 @@ const handleDeleteProjects=(data)=>{
                                     <ListCurrentProjects 
                                           currentData={currentProjects}
                                           setActionType={handleSetActionType}
-                                          deleteAnyProjects={handleDeleteProjects}/>
+                                          deleteAnyProjects={handleDeleteProjects}
+                                          assignCurrentProject={handleAssignProject}
+                                          />
       break;
   }
   
@@ -77,7 +82,7 @@ const handleDeleteProjects=(data)=>{
   return (
     <>
     {
-      assignProject === true ? 
+      assignProject === false ? 
       <div className='container-page'>
         <NavBarForOptions 
            setActionType={handleSetActionType}

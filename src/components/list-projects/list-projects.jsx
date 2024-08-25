@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import '../styles-components.css';
 
-export default function ListCurrentProjects({ currentData, setActionType, deleteAnyProjects }) {
+export default function ListCurrentProjects({ currentData, setActionType, deleteAnyProjects,assignCurrentProject }) {
     const [openModal, setOpenModal] = useState(Array(currentData.length).fill(false));
     const currentDate = new Date();
     const formatCurrentDay = new Intl.DateTimeFormat('en-US', {
@@ -52,6 +52,7 @@ export default function ListCurrentProjects({ currentData, setActionType, delete
                                 <article className='list-projects_container-boxes-modal' style={{ display: openModal[index] ? 'block' : 'none' }}>
                                 <div 
                                         style={{cursor:'pointer'}}
+                                        onClick={()=>assignCurrentProject()}
                                         >&#10004; Asignar</div>
                                     <div 
                                         style={{cursor:'pointer'}}

@@ -120,11 +120,14 @@
     grid-template-columns: 1fr;
     grid-template-rows: 20% 80%;
 }
-.assign-container_options{
+.assign-container_auth{
     width: 95%;
     height: 100%;
-    outline: 2px solid black;
     margin-inline: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: underline;
 }
 .assign-form_auth{
     width: 100%;
@@ -154,6 +157,31 @@
     background: linear-gradient(240deg, rgb(0, 184, 217), rgb(0, 101, 255)) 0% 0% / auto repeat scroll padding-box border-box rgb(0, 101, 255);
     border-radius: 5px;
     cursor: pointer;
+}
+.header_assign-options_container{
+    width: fit-content;
+    height: 80%;
+    outline: 2px solid black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+}
+.header_assign-options_container > button{
+    width: fit-content;
+    height: fit-content;
+    padding: 5px 7px ;
+    font-size: 20px;
+    border: none;
+    color: white;
+    background: linear-gradient(180deg, rgb(0, 184, 217), rgb(0, 101, 255)) 0% 0% / auto repeat scroll padding-box border-box rgb(0, 101, 255);
+    cursor: pointer;
+}   
+.current_actions_assign-container{
+    width: 95%;
+    height: 95%;
+    outline: 2px solid black;
+    margin: auto;
 }
 .add-project_container{
     width: 100%;
