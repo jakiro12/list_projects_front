@@ -186,9 +186,35 @@
 .data_list_update-container{
     width: 100%;
     height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 15% 85%;
+}
+.data_list_update-container > p{
+    width: fit-content;
+    height: 100%;
+    margin-inline: auto;
+    text-align: center;
+}
+.lists_board-container{
+    width: 90%;
+    height: fit-content;
+    margin: auto;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    flex-direction: column;
     align-items: center;
+}
+.lists_board-container > li{
+    list-style:none ;
+    width: 100%;
+    height: fit-content;
+    padding: 5px 0px;
+    outline: 1px solid red;
+    cursor: pointer;
+}
+.lists_board-container > li:nth-child(n + 1){
+    margin-top: 20px;
 }
 .add-project_container{
     width: 100%;

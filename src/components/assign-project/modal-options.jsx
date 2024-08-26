@@ -8,6 +8,10 @@ export const ContextApi=React.createContext()
 export default function OptionsAviableToTrello(){
     const [boardAuth,setBoardAuth]=useState(null)
     const [actionOpt,setActionOpt]=useState(null)
+    const[credentials,setCredentials]=useState({
+        apiKey:'',
+        tokenUser:''
+    })
     let tabValues;
     const handleSetActionOption=(value)=>{
         setActionOpt(value)
@@ -24,7 +28,7 @@ export default function OptionsAviableToTrello(){
             break;
     }
     return(
-        <ContextApi.Provider value={{boardAuth,setBoardAuth}}>
+        <ContextApi.Provider value={{boardAuth,setBoardAuth,credentials,setCredentials}}>
         <section className='options_assign_container'>
            {boardAuth === null ? <article>
                 <header className='assign-container_auth'>Ingresar credenciales de Trello</header>

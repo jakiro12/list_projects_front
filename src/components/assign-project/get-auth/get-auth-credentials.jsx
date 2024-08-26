@@ -2,12 +2,8 @@ import { getAuthData } from '../../../utils/urls-trello-api';
 import '../../styles-components.css';
 import { useState, useContext } from "react";
 import { ContextApi } from '../modal-options';
-export default function GetCredentialsToAssign(){
-    const[credentials,setCredentials]=useState({
-        apiKey:'',
-        tokenUser:''
-    })
-    const { boardAuth, setBoardAuth } = useContext(ContextApi);
+export default function GetCredentialsToAssign(){    
+    const {  setBoardAuth,credentials,setCredentials } = useContext(ContextApi);
     const[loading,setLoading]=useState(false)
     const handleInputChange = (e) => {
         const { name, value } = e.target;
