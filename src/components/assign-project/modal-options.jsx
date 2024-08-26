@@ -20,7 +20,7 @@ export default function OptionsAviableToTrello(){
             tabValues=<CreateNewListWithData/>
             break;
         default:
-            tabValues='elegir algo'
+            tabValues='Mostrar informacion actual'
             break;
     }
     return(

@@ -35,7 +35,7 @@ useEffect(()=>{
       console.error('Error fetching data:', error);
     }
   };
-  fetchData();
+  //fetchData();
 })
 const handleAddNewProjects=(newProjectAddIt)=>{
   setCurrentProjects([...currentProjects,newProjectAddIt])

@@ -20,7 +20,21 @@ export const getAuthData=async(apiKey,personalToken)=>{
          throw error
        }      
 }
-
+export const getCurrentListsData=async(apiKey,personalToken,boardAuth)=>{
+    try {
+        const urlApi=`https://api.trello.com/1/boards/${boardAuth}/lists?key=${apiKey}&token=${personalToken}`
+        const data=await fetch(urlApi,{
+         method: 'GET'        
+        })
+        if (!data.ok) {
+            throw new Error(`HTTP error! Status: ${data.status}`);
+        }
+         const response=await data.json()
+         return response
+       } catch (error) {
+         throw error
+       }      
+}
 //CREATE DATA
 export const createNewCard='https://api.trello.com/1/cards?idList={id}&key=f9669717296754d072e61e0f236945f7&token=ATTAfe4ce7ced8dee969dcad5b24eb679dbe96f8eba33881914bb0af30658c3b130a29B05127'
 
