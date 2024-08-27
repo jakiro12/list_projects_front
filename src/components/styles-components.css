@@ -196,6 +196,13 @@
     margin-inline: auto;
     text-align: center;
 }
+.cards_currents-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+}
 .lists_board-container{
     width: 90%;
     height: fit-content;
@@ -208,14 +215,16 @@
 .lists_board-container > li{
     list-style:none ;
     width: 100%;
-    height: fit-content;
-    padding: 5px 0px;
+    height: 24px;
     outline: 1px solid red;
     cursor: pointer;
+    border-radius: 5px;
+    text-indent: 10px;
 }
 .lists_board-container > li:nth-child(n + 1){
     margin-top: 20px;
 }
+
 .add-project_container{
     width: 100%;
     height: 100%;

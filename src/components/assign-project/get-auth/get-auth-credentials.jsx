@@ -3,7 +3,7 @@ import '../../styles-components.css';
 import { useState, useContext } from "react";
 import { ContextApi } from '../modal-options';
 export default function GetCredentialsToAssign(){    
-    const {  setBoardAuth,credentials,setCredentials } = useContext(ContextApi);
+    const { credentials,setCredentials,setBoardAuth } = useContext(ContextApi);
     const[loading,setLoading]=useState(false)
     const handleInputChange = (e) => {
         const { name, value } = e.target;

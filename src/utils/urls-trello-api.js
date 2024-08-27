@@ -35,6 +35,21 @@ export const getCurrentListsData=async(apiKey,personalToken,boardAuth)=>{
          throw error
        }      
 }
+export const getCurrentCards=async(apiKey,personalToken,boardAuth)=>{
+    try {
+        const urlApi=`https://api.trello.com/1/boards/${boardAuth}/cards?key=${apiKey}&token=${personalToken}`
+        const data=await fetch(urlApi,{
+         method: 'GET'        
+        })
+        if (!data.ok) {
+            throw new Error(`HTTP error! Status: ${data.status}`);
+        }
+         const response=await data.json()
+         return response
+       } catch (error) {
+         throw error
+       }      
+}
 //Body example
 const bodyTest={
     "id": "66ccf7e18414507f63f66de8",
@@ -119,7 +134,8 @@ export const createNewCardInList=async(apiKey,personalToken,listId)=>{
                     'Content-Type': 'application/json'
                   },
                 body:JSON.stringify({
-                    name:"hola"
+                    desc: "👋Hola,\n\nTrello's Platform team uses this board to keep developers up-to-date.",
+                    name:"nueva card"
                   })
             }
         )
@@ -141,6 +157,22 @@ export const createNewList=async(nameList,idBoard)=>{
         console.log(`Response: ${data.status} ${data.statusText}`);
         const response=await data.json()
         console.log(response)        
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+//DELETE DATA
+export const deleteCurrentCard=async(apiKey,personalToken,cardId)=>{
+    try {
+        const data= await fetch(`https://api.trello.com/1/cards/${cardId}?key=${apiKey}&token=${personalToken}`,
+            {
+                method:'DELETE'
+            }
+        )
+        console.log(`Response: ${data.status} ${data.statusText}`);
+        const response=await data.json()
+        return response
     } catch (error) {
         console.log(error)
     }

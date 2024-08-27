@@ -11,7 +11,6 @@ export default function DataListToUpdate(){
             try {
                 let dataList = await getCurrentListsData(credentials.apiKey, credentials.tokenUser,boardAuth);
                 setSelectList(dataList)
-                console.log(dataList)
                 setLoading(false)
               } catch (error) {
                 console.error('Error fetching data:', error);

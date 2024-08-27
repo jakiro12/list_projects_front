@@ -4,6 +4,7 @@ import GetCredentialsToAssign from './get-auth/get-auth-credentials';
 import ChooseOptionToAssign from './choose-place/choose-assigment';
 import DataListToUpdate from './option-display/update-list-data';
 import CreateNewListWithData from './option-display/create-list';
+import UpdateCurrentCards from './option-display/handle-current-cards';
 export const ContextApi=React.createContext()
 export default function OptionsAviableToTrello(){
     const [boardAuth,setBoardAuth]=useState(null)
@@ -22,6 +23,9 @@ export default function OptionsAviableToTrello(){
             break;
         case 'newList':
             tabValues=<CreateNewListWithData/>
+            break;
+        case 'checkCards':
+            tabValues=<UpdateCurrentCards/>
             break;
         default:
             tabValues='Mostrar informacion actual'
