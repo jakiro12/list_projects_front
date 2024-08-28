@@ -12,6 +12,7 @@ export const getAuthData=async(apiKey,personalToken)=>{
             throw new Error(`HTTP error! Status: ${data.status}`);
         }
          const response=await data.json()
+         console.log(response)
          const result={
             idBoards: response.idBoards ? response.idBoards[0] : null
          }
@@ -49,75 +50,6 @@ export const getCurrentCards=async(apiKey,personalToken,boardAuth)=>{
        } catch (error) {
          throw error
        }      
-}
-//Body example
-const bodyTest={
-    "id": "66ccf7e18414507f63f66de8",
-    "badges": {
-        "attachmentsByType": {
-            "trello": {
-                "board": 0,
-                "card": 0
-            }
-        },
-        "externalSource": null,
-        "location": false,
-        "votes": 0,
-        "viewingMemberVoted": false,
-        "subscribed": false,
-        "attachments": 0,
-        "fogbugz": "",
-        "checkItems": 0,
-        "checkItemsChecked": 0,
-        "checkItemsEarliestDue": null,
-        "comments": 0,
-        "description": false,
-        "due": null,
-        "dueComplete": false,
-        "lastUpdatedByAi": false,
-        "start": null
-    },
-    "checkItemStates": [],
-    "closed": false,
-    "dueComplete": false,
-    "dateLastActivity": "2024-08-26T21:47:13.411Z",
-    "desc": "",
-    "descData": {
-        "emoji": {}
-    },
-    "due": null,
-    "dueReminder": null,
-    "email": null,
-    "idBoard": "66c430b8bab73f67189077db",
-    "idChecklists": [],
-    "idList": "66c66cab779c4205c1ae64e8",
-    "idMembers": [],
-    "idMembersVoted": [],
-    "idShort": 10,
-    "idAttachmentCover": null,
-    "labels": [],
-    "idLabels": [],
-    "manualCoverAttachment": false,
-    "name": "",
-    "pos": 114688,
-    "shortLink": "3CqdBjcg",
-    "shortUrl": "https://trello.com/c/3CqdBjcg",
-    "start": null,
-    "subscribed": false,
-    "url": "https://trello.com/c/3CqdBjcg/10--",
-    "cover": {
-        "idAttachment": null,
-        "color": null,
-        "idUploadedBackground": null,
-        "size": "normal",
-        "brightness": "dark",
-        "idPlugin": null
-    },
-    "isTemplate": false,
-    "cardRole": null,
-    "attachments": [],
-    "stickers": [],
-    "limits": {}
 }
 
 

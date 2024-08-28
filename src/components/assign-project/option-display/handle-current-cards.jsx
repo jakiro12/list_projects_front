@@ -5,6 +5,7 @@ export default function  UpdateCurrentCards(){
     const { credentials,boardAuth } = useContext(ContextApi);
     const [selectCards,setSelectCards]=useState(null)
     const [loading,setLoading]=useState(true)
+    const [seeInformation,setSeeInformation]=useState(false)
     useEffect(()=>{
         const fetchDataCards=async()=>{
             try {
@@ -18,8 +19,28 @@ export default function  UpdateCurrentCards(){
         }
         fetchDataCards()
     },[selectCards])
+    const getInformationCard=async(apiKey,personalToken,cardId)=>{
+        try {
+            const urlApi=`https://api.trello.com/1/cards/${cardId}?key=${apiKey}&token=${personalToken}`
+            const data=await fetch(urlApi,{
+             method: 'GET',
+             headers:{
+                'Accept': 'application/json'
+             }        
+            })
+            if (!data.ok) {
+                throw new Error(`HTTP error! Status: ${data.status}`);
+            }
+             const response=await data.json()
+             console.log(response)             
+           } catch (error) {
+             throw error
+           }      
+    }
+    //crear el modal para mostar todo aqui y la info con un state aqui mismo
     return(
-        <div className="cards_currents-container">
+        <>
+        {seeInformation === false ?  <div className="cards_currents-container">
            <p>
             lista de tarjetas con nombre/editar/ color/borrar
            </p>
@@ -33,7 +54,11 @@ export default function  UpdateCurrentCards(){
                             >{item.name}
                             <div className="btn_actions-cards-container">
                                 <span>
-                                &#x270E;
+                                     &#x270E;
+                                </span>
+                                <span 
+                                    onClick={()=>getInformationCard(credentials.apiKey, credentials.tokenUser,item.id)}>
+                                     &#33;
                                 </span>
                                 <span
                                     onClick={()=>deleteCurrentCard(credentials.apiKey, credentials.tokenUser,item.id)}
@@ -46,6 +71,8 @@ export default function  UpdateCurrentCards(){
                     )
                 )}
             </ul>
-        </div>
+        </div> : <span>modal</span>}
+       
+        </>
     )
 }
