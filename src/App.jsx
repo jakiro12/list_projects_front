@@ -102,7 +102,7 @@ const handleAssignProject=()=>{
       <div className='container-page_assign'>
         <span style={{position:'fixed',top:'30px',left:'50%',transform: 'translate(-50%, -50%)',fontSize:'20px',cursor:'pointer'}}
           onClick={()=>setAssignProject(false)}
-        >Volver</span>
+        >Volver al panel</span>
         <OptionsAviableToTrello/>
       </div>
     }      

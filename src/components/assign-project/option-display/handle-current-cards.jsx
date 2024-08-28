@@ -30,9 +30,16 @@ export default function  UpdateCurrentCards(){
                     selectCards && selectCards.length > 0 ? (
                         selectCards.map((item) => (
                             <li key={item.id}                               
-                            >{item.name} <span
-                                onClick={()=>deleteCurrentCard(credentials.apiKey, credentials.tokenUser,item.id)}
-                            >&#x1F5D1;</span></li> 
+                            >{item.name}
+                            <div className="btn_actions-cards-container">
+                                <span>
+                                &#x270E;
+                                </span>
+                                <span
+                                    onClick={()=>deleteCurrentCard(credentials.apiKey, credentials.tokenUser,item.id)}
+                                >&#x1F5D1;</span>
+                            </div>
+                             </li> 
                         ))
                     ) : (
                         <span>Su tablero de Trello esta vacio</span> // Optional: message if there's no data
