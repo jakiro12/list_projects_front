@@ -5,7 +5,7 @@ export default function  UpdateCurrentCards(){
     const { credentials,boardAuth } = useContext(ContextApi);
     const [selectCards,setSelectCards]=useState(null)
     const [loading,setLoading]=useState(true)
-    const [seeInformation,setSeeInformation]=useState(false)
+    const [seeInformation,setSeeInformation]=useState([])
     useEffect(()=>{
         const fetchDataCards=async()=>{
             try {
@@ -32,6 +32,7 @@ export default function  UpdateCurrentCards(){
                 throw new Error(`HTTP error! Status: ${data.status}`);
             }
              const response=await data.json()
+             setSeeInformation(response)
              console.log(response)             
            } catch (error) {
              throw error
@@ -40,7 +41,7 @@ export default function  UpdateCurrentCards(){
     //crear el modal para mostar todo aqui y la info con un state aqui mismo
     return(
         <>
-        {seeInformation === false ?  <div className="cards_currents-container">
+        {seeInformation.length === 0  ?  <div className="cards_currents-container">
            <p>
             lista de tarjetas con nombre/editar/ color/borrar
            </p>
@@ -71,7 +72,18 @@ export default function  UpdateCurrentCards(){
                     )
                 )}
             </ul>
-        </div> : <span>modal</span>}
+        </div> : <article className="card-data-information_container">
+                    <p>nombre de la tarjeta: {seeInformation.name ? seeInformation.name : 'Sin nombre'}</p>
+                    <p>descripcion:{seeInformation.desc ? seeInformation.desc : 'Sin descripcion'}</p>
+                    <div>
+                        <p>Sector encargado: {seeInformation.labels.length > 0 ? 
+                            (seeInformation.labels.map((tag)=>(<span key={tag.id} style={{backgroundColor:`${tag.color}`,padding:'3px',borderRadius:'5px',marginLeft:'5px'}}>{tag.name}</span>))) : 'Sin asignar'}</p>
+                    </div>
+                    <p><a href={seeInformation.url} target="_blank" rel="noopener">{seeInformation.url ? seeInformation.url : 'Not Aviable'}</a></p>
+                <button
+                    onClick={()=>setSeeInformation([])}
+                >cerrar</button>
+            </article>}
        
         </>
     )
