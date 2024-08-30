@@ -43,11 +43,11 @@ export default function  UpdateCurrentCards(){
         <>
         {seeInformation.length === 0  ?  <div className="cards_currents-container">
            <p>
-            lista de tarjetas con nombre/editar/ color/borrar
+            lista de tarjetas - editar/ver/borrar
            </p>
             <ul className='lists_board-container'>
             {loading ? (
-                    <span className="loader_data"></span> 
+                        <span className="loader_data"></span>                   
                 ) : (
                     selectCards && selectCards.length > 0 ? (
                         selectCards.map((item) => (
@@ -81,6 +81,7 @@ export default function  UpdateCurrentCards(){
                     </div>
                     <p><a href={seeInformation.url} target="_blank" rel="noopener">{seeInformation.url ? seeInformation.url : 'Not Aviable'}</a></p>
                 <button
+                    className="submit_btn-form-api"
                     onClick={()=>setSeeInformation([])}
                 >cerrar</button>
             </article>}

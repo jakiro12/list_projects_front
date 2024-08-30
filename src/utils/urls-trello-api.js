@@ -54,7 +54,6 @@ export const getCurrentCards=async(apiKey,personalToken,boardAuth)=>{
 
 
 //CREATE DATA
-export const createNewCard='https://api.trello.com/1/cards?idList={id}&key=f9669717296754d072e61e0f236945f7&token=ATTAfe4ce7ced8dee969dcad5b24eb679dbe96f8eba33881914bb0af30658c3b130a29B05127'
 
 export const createNewCardInList=async(apiKey,personalToken,listId)=>{
     try {
@@ -79,9 +78,9 @@ export const createNewCardInList=async(apiKey,personalToken,listId)=>{
     }
 }
 
-export const createNewList=async(nameList,idBoard)=>{
+export const createNewList=async(apiKey,personalToken,idBoard,nameList)=>{
     try {
-        const data= await fetch(`https://api.trello.com/1/lists?name=${nameList}&idBoard=${idBoard}&key=f9669717296754d072e61e0f236945f7&token=ATTAfe4ce7ced8dee969dcad5b24eb679dbe96f8eba33881914bb0af30658c3b130a29B05127`,
+        const data= await fetch(`https://api.trello.com/1/lists?name=${nameList}&idBoard=${idBoard}&key=${apiKey}&token=${personalToken}`,
             {
                 method:'POST'
             }

@@ -179,11 +179,21 @@
     color: white;
     background: linear-gradient(180deg, rgb(0, 184, 217), rgb(0, 101, 255)) 0% 0% / auto repeat scroll padding-box border-box rgb(0, 101, 255);
     cursor: pointer;
-}   
+}
+.submit_btn-form-api{
+    width: fit-content;
+    height: fit-content;
+    padding: 5px 7px ;
+    font-size: 18px;
+    border: none;
+    color: white;
+    background: linear-gradient(180deg, rgb(0, 184, 217), rgb(0, 101, 255)) 0% 0% / auto repeat scroll padding-box border-box rgb(0, 101, 255);
+    cursor: pointer;
+    border-radius: 5px;
+} 
 .current_actions_assign-container{
     width: 95%;
     height: 95%;
-    outline: 2px solid black;
     margin: auto;
 }
 .data_list_update-container{
@@ -205,6 +215,11 @@
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
+}
+.cards_currents-container > p{
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
 }
 .lists_board-container{
     width: 90%;
@@ -239,6 +254,11 @@
     grid-template-columns: 1fr;
     grid-template-rows: 15% 85%;
 }
+.new_list-container > p{
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+}
 .new_list-container > form {
     width: 90%;
     height: 50%;
@@ -270,6 +290,26 @@
     border-radius: 10px;
     box-shadow: 0px 1px 1px #091E4240, 0px 0px 1px #091E424F, 0px 1px 1px #091e4240, 0px 0px 1px #091e424f;
     background-color: white;
+    display:grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5,1fr);
+}
+.card-data-information_container > p{
+    width: 90%;
+    height: fit-content;
+    margin: auto;
+}
+.card-data-information_container > div{
+    width: 90%;
+    height: fit-content;
+    margin: auto;
+}
+.card-data-information_container > button{
+    width:fit-content;
+    height: fit-content;
+    padding: 3px;
+    margin: auto;
+    cursor: pointer;
 }
 .add-project_container{
     width: 100%;

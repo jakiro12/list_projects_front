@@ -22,7 +22,7 @@ export default function DataListToUpdate(){
 
     return(
         <div className='data_list_update-container'>
-            <p>Seleccione la lista en la cual insetara su nuevo proyecto</p>
+            <p>Seleccione la lista en la cual ingresar su nuevo proyecto</p>
             <ul className='lists_board-container'>
             {loading ? (
                     <span className="loader_data"></span> 
