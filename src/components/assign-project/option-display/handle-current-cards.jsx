@@ -83,7 +83,7 @@ export default function  UpdateCurrentCards(){
                 <button
                     className="submit_btn-form-api"
                     onClick={()=>setSeeInformation([])}
-                >cerrar</button>
+                >volver</button>
             </article>}
        
         </>
