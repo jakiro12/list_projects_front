@@ -35,7 +35,9 @@ export default function OptionsAviableToTrello(){
         <ContextApi.Provider value={{boardAuth,setBoardAuth,credentials,setCredentials}}>
         <section className='options_assign_container'>
            {boardAuth === null ? <article>
-                <header className='assign-container_auth'>Ingresar credenciales de Trello</header>
+                <header className='assign-container_auth'>Ingresar credenciales de Trello
+                    <a href='www.google.com' target='_blank'>¿Como obtener las credenciales?</a>
+                </header>
                 <GetCredentialsToAssign/>
             </article>
                 :
