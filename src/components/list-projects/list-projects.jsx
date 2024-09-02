@@ -36,6 +36,11 @@ export default function ListCurrentProjects({ currentData, setActionType, delete
         newModals[index] = false;
         setOpenModal(newModals);
     }
+    const handleAssigProject=(index)=>{
+        assignCurrentProject()
+        console.log(currentData[index])
+        localStorage.setItem('assignProject',JSON.stringify(currentData[index]))
+    }
     return (
         <section className='list-projects_container'>
             <div className='list-projects-header'>
@@ -52,7 +57,7 @@ export default function ListCurrentProjects({ currentData, setActionType, delete
                                 <article className='list-projects_container-boxes-modal' style={{ display: openModal[index] ? 'block' : 'none' }}>
                                 <div 
                                         style={{cursor:'pointer'}}
-                                        onClick={()=>assignCurrentProject()}
+                                        onClick={()=>handleAssigProject(index)}
                                         >&#10004; Asignar</div>
                                     <div 
                                         style={{cursor:'pointer'}}

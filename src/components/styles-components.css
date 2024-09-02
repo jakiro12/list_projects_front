@@ -542,9 +542,17 @@
 .modal_successful-add{
     position: fixed;
     z-index: 2;
+    width: 100%;
+    height: 100%;
     top:50%;
     left: 50%; 
     transform: translate(-50%,-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+.modal_successful-add > div{
     width: 300px;
     height: 250px;
     border-radius: 10px;
@@ -554,7 +562,7 @@
     place-items: center;
     box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.504);
 }
-.modal_successful-add > span {
+.modal_successful-add > div > span {
     width: 95%;
     height: fit-content;
     text-align: center;
@@ -568,7 +576,7 @@
     0% { width: 0; }
     100% { width: 100%; }
   }
-.modal_successful-add > progress{
+.modal_successful-add > div > progress{
     width: 100%;
     animation: load 3s forwards;
 }
