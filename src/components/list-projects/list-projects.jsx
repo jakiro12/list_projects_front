@@ -38,8 +38,8 @@ export default function ListCurrentProjects({ currentData, setActionType, delete
     }
     const handleAssigProject=(index)=>{
         assignCurrentProject()
-        console.log(currentData[index])
-        localStorage.setItem('assignProject',JSON.stringify(currentData[index]))
+        let fullSelectedData=Object.assign({index:index},currentData[index])        
+        localStorage.setItem('assignProject',JSON.stringify(fullSelectedData))
     }
     return (
         <section className='list-projects_container'>

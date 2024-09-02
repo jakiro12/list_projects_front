@@ -1,6 +1,4 @@
 //GET DATA
-export const getBoarddata='https://api.trello.com/1/boards/66c430b8bab73f67189077db?key=f9669717296754d072e61e0f236945f7&token=ATTAfe4ce7ced8dee969dcad5b24eb679dbe96f8eba33881914bb0af30658c3b130a29B05127'
-export const getListsBoarddata='https://api.trello.com/1/boards/66c430b8bab73f67189077db/lists?key=f9669717296754d072e61e0f236945f7&token=ATTAfe4ce7ced8dee969dcad5b24eb679dbe96f8eba33881914bb0af30658c3b130a29B05127'
 
 export const getAuthData=async(apiKey,personalToken)=>{
     try {
@@ -58,7 +56,7 @@ export const getCurrentCards=async(apiKey,personalToken,boardAuth)=>{
 
 //CREATE DATA
 
-export const createNewCardInList=async(apiKey,personalToken,listId)=>{
+export const createNewCardInList=async(apiKey,personalToken,listId,dataAssign)=>{
     try {
         const data= await fetch(`https://api.trello.com/1/cards?idList=${listId}&key=${apiKey}&token=${personalToken}`,
             {
@@ -68,14 +66,12 @@ export const createNewCardInList=async(apiKey,personalToken,listId)=>{
                     'Content-Type': 'application/json'
                   },
                 body:JSON.stringify({
-                    desc: "👋Hola,\n\nTrello's Platform team uses this board to keep developers up-to-date.",
-                    name:"nueva card"
+                    name:dataAssign.projectName,
+                    desc: dataAssign.description
                   })
             }
         )
-        console.log(`Response: ${data.status} ${data.statusText}`);
-        const response=await data.json()
-        console.log(response)        
+        return data.status
     } catch (error) {
         console.log(error)
     }

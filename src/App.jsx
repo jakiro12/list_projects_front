@@ -24,25 +24,7 @@ const[assignProject,setAssignProject]=useState(false)
 const myownApiKey='f9669717296754d072e61e0f236945f7'
 const myTestToken='ATTAfe4ce7ced8dee969dcad5b24eb679dbe96f8eba33881914bb0af30658c3b130a29B05127'
 
-useEffect(()=>{
-  const fetchData = async () => {
-    try {
-      const urlApi=`https://api.trello.com/1/boards/66c430b8bab73f67189077db/cards?key=f9669717296754d072e61e0f236945f7&token=ATTAfe4ce7ced8dee969dcad5b24eb679dbe96f8eba33881914bb0af30658c3b130a29B05127`
-      const data=await fetch(urlApi,{
-       method: 'GET'        
-      })
-      if (!data.ok) {
-          throw new Error(`HTTP error! Status: ${data.status}`);
-      }
-       const response=await data.json()
-       console.log(response)
-       return response
-     } catch (error) {
-       throw error
-     }      
-  };
-  //fetchData();
-})
+
 const handleAddNewProjects=(newProjectAddIt)=>{
   setCurrentProjects([...currentProjects,newProjectAddIt])
 }

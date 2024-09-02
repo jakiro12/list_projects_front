@@ -38,7 +38,7 @@ export default function OptionsAviableToTrello(){
         <section className='options_assign_container'>
            {boardAuth === null ? <article>
                 <header className='assign-container_auth'>Ingresar credenciales de Trello
-                    <a href='https://www.google.com' target='_blank'>¿Como obtener las credenciales?</a>
+                    <a href='https://github.com/jakiro12/list_projects_front/blob/main/README.md#crear-un-power-ups' target='_blank'>¿Como obtener las credenciales?</a>
                 </header>
                 <GetCredentialsToAssign/>
             </article>

@@ -19,7 +19,20 @@ export default function DataListToUpdate(){
         }
         fetchDataList()
     },[])
+    const handleAddProjectInList=async(id)=>{
+        let storageDataProject=JSON.parse(localStorage.getItem('assignProject'))
 
+        createNewCardInList(credentials.apiKey, credentials.tokenUser,id,storageDataProject)
+        try {
+            const response=await createNewCardInList(credentials.apiKey, credentials.tokenUser,id,storageDataProject)
+            console.log(response)
+            if(response === 200){
+                localStorage.setItem('indexAssigned',JSON.stringify({indexValue:storageDataProject.index}))
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
     return(
         <div className='data_list_update-container'>
             <p>Seleccione la lista en la cual ingresar su nuevo proyecto</p>
@@ -30,7 +43,7 @@ export default function DataListToUpdate(){
                     selectList && selectList.length > 0 ? (
                         selectList.map((item) => (
                             <li key={item.id}
-                                onClick={()=>createNewCardInList(credentials.apiKey, credentials.tokenUser,item.id)}
+                                onClick={()=>handleAddProjectInList(item.id)}
                             >{item.name}</li> 
                         ))
                     ) : (
