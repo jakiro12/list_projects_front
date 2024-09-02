@@ -1,8 +1,14 @@
-# React + Vite
+# MALTASK
+En esta herramienta podras crear tus propias tareas generales sin necesidad de ingresar a tu cuenta de trello, no requiere de inicio de sesion ni contraseña personal para asignar 
+las tareas creada en memoria del navegador. Tenga en cuenta que al no utulizar un usuario unico, todo lo creado a modo de prueba en la aplicacion se borrara al refrescar la pagina.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+### ¿Como funciona?
+La aplicacion cuenta con una primera interfaz visual en la cual se pueden crear a modo de prueba una cantidad indeterminada de proyectos, los cuales se podran visualizar
+en una lista en la pantalla principal.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<p align="center"><b>Pantalla de incio</b></p>
+
+![init](https://github.com/user-attachments/assets/eb13681f-0aee-4e4e-8c7e-d3f11aa9d3b4)
+
+
