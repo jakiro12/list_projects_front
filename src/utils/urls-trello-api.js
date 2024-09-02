@@ -14,7 +14,10 @@ export const getAuthData=async(apiKey,personalToken)=>{
          const response=await data.json()
          console.log(response)
          const result={
-            idBoards: response.idBoards ? response.idBoards[0] : null
+            idBoards: response.idBoards ? response.idBoards[0] : null,
+            fullName: response.fullName ? response.fullName : null,
+            username:response.username ? response.username : null,
+            email:response.email ? response.email : null,
          }
          return result
        } catch (error) {

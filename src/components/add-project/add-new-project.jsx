@@ -81,7 +81,7 @@ export default function AddNewProject({newProjectData,setCurrentProjectData,onFo
                 </select>
             </div>
             <div className='add-project_form_sections'>
-                <label htmlFor="assignedTo">Asignar persona</label>
+                <label htmlFor="assignedTo">Asignar sector</label>
                 <select
                     id="assignedTo"
                     name="assignedTo"
@@ -89,9 +89,11 @@ export default function AddNewProject({newProjectData,setCurrentProjectData,onFo
                     onChange={handleInputChange}
                     required
                 >
-                    <option value="">Seleccionar persona</option>
-                    <option value="user1">User 1</option>
-                    <option value="user2">User 2</option>
+                    <option value="">Seleccionar sector</option>
+                    <option value="Project Manager">PM</option>
+                    <option value="Frontend">Frontend</option>
+                    <option value="Backend">Backend</option>
+                    <option value="Devops">Devops</option>
                 </select>
             </div>
             <div className='add-project_form_sections'>

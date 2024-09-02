@@ -3,7 +3,7 @@ import '../../styles-components.css';
 import { useState, useContext } from "react";
 import { ContextApi } from '../modal-options';
 export default function GetCredentialsToAssign(){    
-    const { credentials,setCredentials,setBoardAuth } = useContext(ContextApi);
+    const { credentials,setCredentials,setBoardAuth,setInitData } = useContext(ContextApi);
     const[loading,setLoading]=useState(false)
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -18,8 +18,10 @@ export default function GetCredentialsToAssign(){
               let dataToGetBoard = await getAuthData(credentials.apiKey, credentials.tokenUser);
               if(dataToGetBoard.idBoards !== null){
                 setBoardAuth(dataToGetBoard.idBoards)
+                setInitData(dataToGetBoard)
               }else{
                 setBoardAuth(null)
+                setInitData([])
               }
             } catch (error) {
               console.error('Error fetching data:', error);
@@ -34,7 +36,7 @@ export default function GetCredentialsToAssign(){
         {
             loading === false ? <form className='assign-form_auth' onSubmit={onFormSubmit}>
             <div>
-                <label htmlFor="">Ingresar API Key</label>
+                <label htmlFor="">API Key</label>
                 <input type="password"
                 name="apiKey"
                 value={credentials.apiKey}
@@ -42,7 +44,7 @@ export default function GetCredentialsToAssign(){
                 required/>
             </div>
             <div>
-                <label htmlFor="">Ingresar Token de acceso</label>
+                <label htmlFor="">Token de acceso</label>
                 <input type="password" 
                 name="tokenUser"
                 value={credentials.tokenUser}

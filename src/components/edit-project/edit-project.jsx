@@ -59,15 +59,17 @@ export default function EditCurrentProject({ projectToEdit, setCurrentEdited, se
                     </select>
                 </div>
                 <div className='add-project_form_sections'>
-                    <label htmlFor="assignedTo">Asignar persona</label>
+                    <label htmlFor="assignedTo">Asignar sector</label>
                     <select
                         name="assignedTo"
                         onChange={(e)=>setCurrentProjectData(e.target.value,"assignedTo")}
                         required
                     >
                         <option value="">{projectToEdit[currentProjectToEditPosition].assignedTo}</option>
-                        <option value="user1">User 1</option>
-                        <option value="user2">User 2</option>
+                        <option value="Project Manager">PM</option>
+                        <option value="Frontend">Frontend</option>
+                        <option value="Backend">Backend</option>
+                        <option value="Devops">Devops</option>
                     </select>
                 </div>
                 <div className='add-project_form_sections'>
@@ -79,7 +81,7 @@ export default function EditCurrentProject({ projectToEdit, setCurrentEdited, se
                     >
                         <option value="">{projectToEdit[currentProjectToEditPosition].status}</option>
                         <option value="enabled">Habilitar</option>
-                        <option value="disabled">Dishabilitar</option>
+                        <option value="disabled">Deshabilitar</option>
                     </select>
                 </div>
                 <div className='add-project_form_sections_submit'>

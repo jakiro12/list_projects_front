@@ -79,7 +79,7 @@ export default function  UpdateCurrentCards(){
                         <p>Sector encargado: {seeInformation.labels.length > 0 ? 
                             (seeInformation.labels.map((tag)=>(<span key={tag.id} style={{backgroundColor:`${tag.color}`,padding:'3px',borderRadius:'5px',marginLeft:'5px'}}>{tag.name}</span>))) : 'Sin asignar'}</p>
                     </div>
-                    <p><a href={seeInformation.url} target="_blank" rel="noopener">{seeInformation.url ? seeInformation.url : 'Not Aviable'}</a></p>
+                    <p><a href={seeInformation.url} target="_blank" rel="noopener">{seeInformation.url ? 'Ver tarjeta' : 'Not Aviable'}</a></p>
                 <button
                     className="submit_btn-form-api"
                     onClick={()=>setSeeInformation([])}

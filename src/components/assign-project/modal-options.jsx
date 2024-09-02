@@ -5,10 +5,12 @@ import ChooseOptionToAssign from './choose-place/choose-assigment';
 import DataListToUpdate from './option-display/update-list-data';
 import CreateNewListWithData from './option-display/create-list';
 import UpdateCurrentCards from './option-display/handle-current-cards';
+import GetBasicInformationBoard from './init-information/basic-information';
 export const ContextApi=React.createContext()
 export default function OptionsAviableToTrello(){
     const [boardAuth,setBoardAuth]=useState(null)
     const [actionOpt,setActionOpt]=useState(null)
+    const [initData,setInitData]=useState([])
     const[credentials,setCredentials]=useState({
         apiKey:'',
         tokenUser:''
@@ -28,15 +30,15 @@ export default function OptionsAviableToTrello(){
             tabValues=<UpdateCurrentCards/>
             break;
         default:
-            tabValues='Mostrar informacion actual'
+            tabValues=<GetBasicInformationBoard/>
             break;
     }
     return(
-        <ContextApi.Provider value={{boardAuth,setBoardAuth,credentials,setCredentials}}>
+        <ContextApi.Provider value={{boardAuth,setBoardAuth,credentials,setCredentials,initData,setInitData}}>
         <section className='options_assign_container'>
            {boardAuth === null ? <article>
                 <header className='assign-container_auth'>Ingresar credenciales de Trello
-                    <a href='www.google.com' target='_blank'>¿Como obtener las credenciales?</a>
+                    <a href='https://www.google.com' target='_blank'>¿Como obtener las credenciales?</a>
                 </header>
                 <GetCredentialsToAssign/>
             </article>
