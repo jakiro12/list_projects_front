@@ -43,7 +43,7 @@ export default function  UpdateCurrentCards(){
         <>
         {seeInformation.length === 0  ?  <div className="cards_currents-container">
            <p>
-            lista de tarjetas - editar/ver/borrar
+            Lista de tarjetas - editar/ver/borrar
            </p>
             <ul className='lists_board-container'>
             {loading ? (
@@ -68,7 +68,7 @@ export default function  UpdateCurrentCards(){
                              </li> 
                         ))
                     ) : (
-                        <span>Su tablero de Trello esta vacio</span> // Optional: message if there's no data
+                        <span>Su tablero de Trello esta vacio</span> 
                     )
                 )}
             </ul>

@@ -4,7 +4,7 @@ import { ContextApi } from "../modal-options";
 export default function GetBasicInformationBoard(){
     const { initData } = useContext(ContextApi);
     return(
-        <div>
+        <div className="general_user_information-container">
             <p>
               Nombre del propietario: {initData.fullName}
             </p>
@@ -12,9 +12,8 @@ export default function GetBasicInformationBoard(){
                 usuario de trello:{initData.username}
             </p>
             <p>
-                email del propietario:{initData.email}
+                email:{initData.email}
             </p>
-            informacion de ingreso{console.log(initData)}
         </div>
     )
 }
