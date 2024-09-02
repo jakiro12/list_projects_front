@@ -22,6 +22,16 @@ en una lista en la pantalla principal.
 
 ![init2](https://github.com/user-attachments/assets/398b2a4f-3b33-4240-a297-3e3903e90b21)
 
+### Ingreso con credenciales
+![ingreso](https://github.com/user-attachments/assets/eff28e03-7b48-4bbb-a206-b939ef5aed62)
+
+
+![ingreso1](https://github.com/user-attachments/assets/7a3aaf37-4edb-4da5-8f9f-2b433c2ce825)
+
+![ingreso2](https://github.com/user-attachments/assets/2e505bd3-c98a-4791-84ad-b4e509ce61c0)
+
+
+![ingreso3](https://github.com/user-attachments/assets/fce6f487-27f2-431a-8019-7c0aad08f01f)
 
 
 ### Crear un power-ups
