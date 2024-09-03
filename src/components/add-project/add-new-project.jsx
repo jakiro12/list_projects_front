@@ -90,7 +90,7 @@ export default function AddNewProject({newProjectData,setCurrentProjectData,onFo
                     required
                 >
                     <option value="">Seleccionar sector</option>
-                    <option value="Project Manager">PM</option>
+                    <option value="Project Manager">Project Manager</option>
                     <option value="Frontend">Frontend</option>
                     <option value="Backend">Backend</option>
                     <option value="Devops">Devops</option>

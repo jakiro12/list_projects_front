@@ -1,14 +1,12 @@
 
-import { useState,useEffect } from 'react'
+import { useState } from 'react'
 import './App.css'
 import NavBarForOptions from './components/nav-bar/nav-bar-options'
 import AddNewProject from './components/add-project/add-new-project';
 import EditCurrentProject from './components/edit-project/edit-project';
 import ListCurrentProjects from './components/list-projects/list-projects';
 import EmptyListProjects from './components/empty-list/empty-list';
-import { getAuthData } from './utils/urls-trello-api';
 import OptionsAviableToTrello from './components/assign-project/modal-options';
-//token test
 function App() {
   const[action,setAction]=useState(null)
   const[currentProjects,setCurrentProjects]=useState([])
@@ -21,8 +19,6 @@ function App() {
 });
 const[assignProject,setAssignProject]=useState(false)
 
-const myownApiKey='f9669717296754d072e61e0f236945f7'
-const myTestToken='ATTAfe4ce7ced8dee969dcad5b24eb679dbe96f8eba33881914bb0af30658c3b130a29B05127'
 
 
 const handleAddNewProjects=(newProjectAddIt)=>{

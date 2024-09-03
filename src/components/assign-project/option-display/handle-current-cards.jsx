@@ -33,12 +33,10 @@ export default function  UpdateCurrentCards(){
             }
              const response=await data.json()
              setSeeInformation(response)
-             console.log(response)             
            } catch (error) {
              throw error
            }      
     }
-    //crear el modal para mostar todo aqui y la info con un state aqui mismo
     return(
         <>
         {seeInformation.length === 0  ?  <div className="cards_currents-container">

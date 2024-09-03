@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import '../styles-components.css';
 
 export default function ListCurrentProjects({ currentData, setActionType, deleteAnyProjects,assignCurrentProject }) {
@@ -11,7 +11,7 @@ export default function ListCurrentProjects({ currentData, setActionType, delete
       hour: '2-digit',
       minute: '2-digit'
     });
-    
+   
     const dateData = formatCurrentDay.format(currentDate);
     const handleOpenModal = (index) => {
         if(openModal[index]=== false){
@@ -41,6 +41,15 @@ export default function ListCurrentProjects({ currentData, setActionType, delete
         let fullSelectedData=Object.assign({index:index},currentData[index])        
         localStorage.setItem('assignProject',JSON.stringify(fullSelectedData))
     }
+    useEffect(()=>{
+        const projectAssigned=JSON.parse(localStorage.getItem('indexAssigned'))
+        if(projectAssigned !== null){           
+            deleteProject(projectAssigned.indexValue)
+            localStorage.removeItem('indexAssigned')
+        }else{
+            console.log('no se agrego u no se selecciono')
+        }
+    })
     return (
         <section className='list-projects_container'>
             <div className='list-projects-header'>

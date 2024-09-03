@@ -10,7 +10,6 @@ export const getAuthData=async(apiKey,personalToken)=>{
             throw new Error(`HTTP error! Status: ${data.status}`);
         }
          const response=await data.json()
-         console.log(response)
          const result={
             idBoards: response.idBoards ? response.idBoards[0] : null,
             fullName: response.fullName ? response.fullName : null,
@@ -40,6 +39,21 @@ export const getCurrentListsData=async(apiKey,personalToken,boardAuth)=>{
 export const getCurrentCards=async(apiKey,personalToken,boardAuth)=>{
     try {
         const urlApi=`https://api.trello.com/1/boards/${boardAuth}/cards?key=${apiKey}&token=${personalToken}`
+        const data=await fetch(urlApi,{
+         method: 'GET'        
+        })
+        if (!data.ok) {
+            throw new Error(`HTTP error! Status: ${data.status}`);
+        }
+         const response=await data.json()
+         return response
+       } catch (error) {
+         throw error
+       }      
+}
+export const getListCards=async(apiKey,personalToken,listId)=>{
+    try {
+        const urlApi=`https://api.trello.com/1/lists/${listId}/cards?key=${apiKey}&token=${personalToken}`
         const data=await fetch(urlApi,{
          method: 'GET'        
         })
@@ -84,9 +98,8 @@ export const createNewList=async(apiKey,personalToken,idBoard,nameList)=>{
                 method:'POST'
             }
         )
-        console.log(`Response: ${data.status} ${data.statusText}`);
         const response=await data.json()
-        console.log(response)        
+        return response
     } catch (error) {
         console.log(error)
     }
