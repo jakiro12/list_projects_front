@@ -1,11 +1,13 @@
 import { useContext,useState, useEffect } from "react"
 import { ContextApi } from "../modal-options"
 import { getCurrentCards, deleteCurrentCard } from "../../../utils/urls-trello-api";
+import HandleDataInformationInOneCard from "./see-or-edit-a-card/handle-one-card";
 export default function  UpdateCurrentCards(){
     const { credentials,boardAuth } = useContext(ContextApi);
     const [selectCards,setSelectCards]=useState(null)
     const [loading,setLoading]=useState(true)
     const [seeInformation,setSeeInformation]=useState([])
+    const [editCard,setEditCard]=useState(false)
     useEffect(()=>{
         const fetchDataCards=async()=>{
             try {
@@ -37,6 +39,10 @@ export default function  UpdateCurrentCards(){
              throw error
            }      
     }
+    const handleEditOneCard=(cardId)=>{
+        setSeeInformation(cardId)
+        setEditCard(true)
+    }
     return(
         <>
         {seeInformation.length === 0  ?  <div className="cards_currents-container">
@@ -52,7 +58,9 @@ export default function  UpdateCurrentCards(){
                             <li key={item.id}                               
                             >{item.name}
                             <div className="btn_actions-cards-container">
-                                <span>
+                                <span
+                                   onClick={()=>handleEditOneCard(item.id)}
+                                >
                                      &#x270E;
                                 </span>
                                 <span 
@@ -70,19 +78,7 @@ export default function  UpdateCurrentCards(){
                     )
                 )}
             </ul>
-        </div> : <article className="card-data-information_container">
-                    <p>nombre de la tarjeta: {seeInformation.name ? seeInformation.name : 'Sin nombre'}</p>
-                    <p>descripcion:{seeInformation.desc ? seeInformation.desc : 'Sin descripcion'}</p>
-                    <div>
-                        <p>Sector encargado: {seeInformation.labels.length > 0 ? 
-                            (seeInformation.labels.map((tag)=>(<span key={tag.id} style={{backgroundColor:`${tag.color}`,padding:'3px',borderRadius:'5px',marginLeft:'5px'}}>{tag.name}</span>))) : 'Sin asignar'}</p>
-                    </div>
-                    <p><a href={seeInformation.url} target="_blank" rel="noopener">{seeInformation.url ? 'Ver tarjeta' : 'Not Aviable'}</a></p>
-                <button
-                    className="submit_btn-form-api"
-                    onClick={()=>setSeeInformation([])}
-                >volver</button>
-            </article>}
+        </div> : <HandleDataInformationInOneCard setSeeInformation={setSeeInformation} seeInformation={seeInformation} editForm={editCard} setEditForm={setEditCard}/>}
        
         </>
     )

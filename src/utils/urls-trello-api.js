@@ -120,3 +120,25 @@ export const deleteCurrentCard=async(apiKey,personalToken,cardId)=>{
         console.log(error)
     }
 }
+
+//UPDATE DATA
+
+export const updateCardData=async(apiKey,personalToken,cardId,cardName)=>{
+    try {
+        const data= await fetch(`https://api.trello.com/1/cards/${cardId}?key=${apiKey}&token=${personalToken}`,
+            {
+                method:'PUT',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                  },
+                body:JSON.stringify({
+                    name:cardName,                    
+                  })
+            }
+        )
+        return data.status
+    } catch (error) {
+        console.log(error)
+    }
+}

@@ -105,9 +105,9 @@ export default function AddNewProject({newProjectData,setCurrentProjectData,onFo
                     onChange={handleInputChange}
                     required
                 >
-                    <option value="">Select a status</option>
-                    <option value="enabled" >Enabled</option>
-                    <option value="disabled">Disabled</option>
+                    <option value="">Seleccionar</option>
+                    <option value="enabled" >Habilitar</option>
+                    <option value="disabled">Deshabilitar</option>
                 </select>
             </div>
             <div className='add-project_form_sections_submit'>
